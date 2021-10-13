@@ -1,0 +1,35 @@
+name : Deploy pwa 
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    name : Prod build for pwa
+    runs-on : ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+     - uses: actions/checkout@v2
+     - name: Use Node.js ${{ matrix.node-version }}
+       uses: actions/setup-node@v2
+       with:
+         node-version: ${{ matrix.node-version }}
+    
+     - name: Install pwa dependencies
+       run: npm install
+      
+     - name : Start building pwa 
+       run: npm run build
+
+     - name : Deploy to firebase
+       uses: FirebaseExtended/action-hosting-deploy@v0
+       with:
+          repoToken: "${{ secrets.REPO_ACTIONS_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          projectId: firestore-example-94da3
+          channelId : live
