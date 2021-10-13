@@ -25,11 +25,10 @@ jobs:
       
      - name : Start building pwa 
        run: npm run build
-
-     - name: Env file config
        env:
-         REACT_APP_FIREBASE_ID: ${{ secrets.FIREBASE_ID }}
+         REACT_APP_FIREBASE_ID: "${{ secrets.FIREBASE_ID }}"
 
+  
      - name : Deploy to firebase
        uses: FirebaseExtended/action-hosting-deploy@v0
        with:
