@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>{process.env.REACT_APP_FIREBASE_ID}</p>
+        <p>This is env secret {process.env.REACT_APP_FIREBASE_ID}</p>
         <a
           className="App-link"
           href="https://reactjs.org"
