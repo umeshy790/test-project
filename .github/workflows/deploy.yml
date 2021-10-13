@@ -8,6 +8,7 @@ jobs:
   build:
     name : Prod build for pwa
     runs-on : ubuntu-latest
+    environment: staging
 
     strategy:
       matrix:
