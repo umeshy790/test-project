@@ -8,7 +8,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           This should come from env . {process.env.REACT_APP_FIREBASE_ID} Wait
-          for permission test
+          for permission.
         </p>
         <a
           className="App-link"
